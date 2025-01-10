@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/posebusters-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/posebusters-{{ version }}.tar.gz
   sha256: fcfc184b4e2b39f154202fd899cbb7c38687f058198869f5318a936df58a9e0d
 
 build:
@@ -14,15 +14,15 @@ build:
     - bust = posebusters.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   host:
-    - python >=3.7,<4.dev0
+    - python {{ python_min }}
     - flit-core >=3.2,<4
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - rdkit >=2020.09
     - pandas
     - numpy
@@ -36,6 +36,7 @@ test:
     - bust --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   summary: 'PoseBusters: Plausibility checks for generated molecule poses.'
