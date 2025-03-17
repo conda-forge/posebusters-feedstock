@@ -1,5 +1,5 @@
 {% set name = "posebusters" %}
-{% set version = "0.3.4" %}
+{% set version = "0.3.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/posebusters-{{ version }}.tar.gz
-  sha256: 44da3254640380bc83efdab85bf70b0143b728064d35f397156cd8390f7fd8ec
+  sha256: 88f5a31d993ebafc80f1e23f18511d38427d8327245cf74221ac9dbe28ff0eda
 
 build:
   entry_points:
